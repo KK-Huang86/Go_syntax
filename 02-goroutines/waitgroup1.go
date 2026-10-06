@@ -11,7 +11,7 @@ func main() {
 	num := 1000000
 	start := time.Now().Unix()
 	for i := 0; i < num; i++ {
-		wg.Add(1) // 每開一個協程就 +1，數量比較會對得上
+		wg.Add(1) // 每開一個協程就 +1，數量會對得上
 		go findPrime(i, wg)
 	}
 	wg.Wait() // 等計數器歸零，也就是所有協程都跑完
