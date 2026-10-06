@@ -38,5 +38,5 @@ func findPrimes(num int) {
 2. main 開完就不管（fire-and-forget），不會追蹤哪些 goroutine 跑完。
 3. start ~ end 量到的只是「開完一百萬個 goroutine」的時間，不是全部算完的時間。
 4. main 一 return，程式就結束，沒跑完的 goroutine 直接被殺掉。
-5. time.Sleep 只是用猜的時間等，可能不夠也可能白等；要精確等全部完成，請用 sync.WaitGroup。
+5. time.Sleep 只是用猜的時間等，可能不夠也可能白等；要精確等全部完成，後續將嘗試改用 sync.WaitGroup。
 */
