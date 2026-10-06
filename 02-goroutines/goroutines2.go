@@ -35,6 +35,5 @@ func isPrime(num int) bool {
 
 /*
 先不透過goroutines 來執行找質數的程式
-從0 - 1000000 總共需要花費 21 秒
-
+總共花費 21秒
 */
