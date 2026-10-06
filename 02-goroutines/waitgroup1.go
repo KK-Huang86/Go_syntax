@@ -14,7 +14,7 @@ func main() {
 		wg.Add(1) // 每開一個協程就 +1，數量會對得上
 		go findPrime(i, wg)
 	}
-	wg.Wait() // 等計數器歸零，也就是所有協程都跑完
+	wg.Wait() // block main 主程式的協程運作，等其他協程都處理完
 	end := time.Now().Unix()
 	fmt.Println(end-start, "seconds")
 
