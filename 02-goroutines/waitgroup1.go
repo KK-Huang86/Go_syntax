@@ -21,7 +21,7 @@ func main() {
 }
 
 func findPrime(num int, wg *sync.WaitGroup) {
-	defer wg.Done() //該協程結束後會呼叫 waitgroup 減少協程開的數量
+	defer wg.Done() //該協程結束後會呼叫 waitgroup 減少協程開的數量，defer 意味著不會立刻被執行，而是會被推遲到包含它的外層函數即將返回（return）或結束之前才執行
 	if num < 2 {    // 0 和 1 都不是質數
 		return
 	} else if num == 2 {
@@ -44,4 +44,5 @@ func findPrime(num int, wg *sync.WaitGroup) {
    → Wait() 一直等 → fatal error: all goroutines are asleep - deadlock!
 4. 跟 goroutines3.go 比：不用 time.Sleep 猜時間，main 會等全部算完才結束，印出的質數數量每次都一樣。
 5. 量到的時間才是「全部算完」的時間。
+6. defer 不會立刻被執行，而是會被推遲到包含它的外層函數即將返回（return）或結束之前才執行
 */
