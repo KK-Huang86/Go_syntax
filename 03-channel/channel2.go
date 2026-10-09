@@ -56,5 +56,5 @@ func main() {
 	sendChan <- "good"
 	// b := <-sendChan //invalid operation: cannot receive from send-only channel chan<- string sendChan (variable of type chan<- string)
 
-	getChan <- 2
+	// getChan <- 2 //./channel2.go:59:2: invalid operation: cannot send to receive-only channel <-chan int getChan (variable of type <-chan int)
 }
