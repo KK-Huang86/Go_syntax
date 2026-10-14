@@ -19,14 +19,22 @@
 ### 03-channel
 
 - `channel1.go`：`make` 給容量、`len` / `cap`、先進先出，還有沒容量的 channel 為什麼會卡住
+- `channel2.go`：channel 放 struct、`interface{}`，以及只能送 / 只能收的單向 channel
+- `channel3.go`：`close` 之後不能再送（會 panic），但剩下的值還收得到
+- `channel4.go`：`for range` 讀 channel，沒 `close` 會 deadlock
+- `channel5.go`：一個 goroutine 放、main 收，容量 1 時送的一方會等，不會塞爆
+- `channel6.go`：用 `num, ok := <-ch` 判斷 channel 是不是已經關了
+- `channel7.go`：用三個 channel 串起來找 10 萬以內的質數，`done` 拿來等所有 goroutine 跑完再 `close`
 
 ## 執行
 
 ```bash
-go run 03-channel/channel1.go
+go run 03-channel/channel7.go
 ```
+
+同一個資料夾裡每個檔案都有自己的 `main`，所以要一次跑一個檔案，`go run .` 會報錯。
 
 ## 接下來
 
-- `close` 和 `range` 讀 channel
 - `select`
+- worker pool
